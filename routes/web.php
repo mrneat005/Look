@@ -57,8 +57,11 @@ Route::get('/','pagesController@home');
 Route::get('/index','pagesController@index');
 
 
+// now lets se  how can we send values to blade syntax or Array
 
 
-
+Route::get('/singleusingcompact','pagesController@getSingleValueUsingCompact');
+Route::get('/singleusingwith','pagesController@getSingleValueUsingWith');
+Route::get('/services','pagesController@getArrayOfValueUsingWith');
 
 
