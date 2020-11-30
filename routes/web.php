@@ -52,7 +52,7 @@ Route::get('/users/{id}/{name}', function ($id,$name) {
 
 Route::get('/services','pagesController@services');
 Route::get('/about','pagesController@about');
-Route::get('/posts','pagesController@posts');
+//Route::get('/posts','pagesController@posts');
 Route::get('/','pagesController@home');
 Route::get('/index','pagesController@index');
 
@@ -72,3 +72,4 @@ Route::get('/index','pagesController@index');
 //lets open localhost wamp dashbord by typing localhost in the browser
 //open phpmyadmin 
 //now we will use tinker tool used to insert update or delete data
+Route::resource('posts','postController');
