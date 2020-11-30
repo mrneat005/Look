@@ -17,11 +17,31 @@ class pagesController extends Controller
     {
         //now when ever this function is called its
         // gonna return a view mentioned
-        return view('pages.index');
+        $title = 'Here is our single value that we are sending to blade using with';
+        return view('pages.index') -> with('title',$title);
     }
     public function services()
     {
-        return view('pages.services');
+        // $services = array('services'=>['jljljl','jvjjv','jhjjgi']);
+        $ser = array('title'=>'Services',
+        'service0'=>array(
+            'name'=>'Laravel',
+            'description'=>'Backend development framework...!',
+            'complexity'=>'Medium'
+        ),
+        'service1'=>array(
+            'name'=>'Vue',
+            'description'=>'Frontend development framework...!',
+            'complexity'=>'hard'
+        ),
+        'service2'=>array(
+            'name'=>'Bootstrap',
+            'description'=>'Fontend development framework...!',
+            'complexity'=>'easy'
+        )
+    
+    );
+    return view('pages.services') -> with($ser);
     }
 
     public function posts()
@@ -36,6 +56,8 @@ class pagesController extends Controller
     {
         return view('welcome');
     }
+
+    /*
     //using compact
     public function getSingleValueUsingCompact()
     {
@@ -70,6 +92,6 @@ class pagesController extends Controller
         $title = 'Here is our single value that we are sending to blade using with';
         return view('pages.index') -> with('title',$title); 
     }
-    
+    */
 
 }

@@ -7,29 +7,44 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <!-- Including scss that comes with laravel-->
+      <!-- You have to install and rub watch npm 
+        so every time it will look for changes and updates them
+      simply type this command to intall npm 
+    $ npm install
+    then
+    $npm run dev  //single
+    $npm run watch //continously
+    -->
+   <link rel="stylesheet" href="{{asset('css/app.css')}}">
+   <!-- npm is no working getting some error-->
+   <!-- npm installation error fixed by installing node js-->
+   
   <title>Look</title>
   </head>
   <body>
 
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand font-weight-bolder font-italic " href="#">Look</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a style="font-size: 36px" class="navbar-brand font-weight-bolder font-italic " href="/">Look</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active font-weight-bold">
+            <li style="padding: 5px" class="font-weight-bold bg-success " style="hover:red">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
+            <li class="font-weight-bold ">
             <a class="nav-link" href="/index">index <span class="sr-only">(current)</span></a>
           </li>
+          <li class="font-weight-bold ">
           <a class="nav-link" href="/services">services<span class="sr-only">(current)</span></a>
         </li>
+        <li class="font-weight-bold">
         <a class="nav-link" href="/posts">Posts<span class="sr-only">(current)</span></a>
       </li>
-    </li>
+      <li class="font-weight-bold ">
     <a class="nav-link" href="/about">About<span class="sr-only">(current)</span></a>
   </li>
 

@@ -60,8 +60,10 @@ Route::get('/index','pagesController@index');
 // now lets se  how can we send values to blade syntax or Array
 
 
-Route::get('/singleusingcompact','pagesController@getSingleValueUsingCompact');
-Route::get('/singleusingwith','pagesController@getSingleValueUsingWith');
-Route::get('/services','pagesController@getArrayOfValueUsingWith');
+//Route::get('/singleusingcompact','pagesController@getSingleValueUsingCompact');
+//Route::get('/singleusingwith','pagesController@getSingleValueUsingWith');
+//Route::get('/services','pagesController@getArrayOfValueUsingWith');
 
 
+// if npm not found err is incountered simply install the node,js in 
+//default directory that would work fine for you
