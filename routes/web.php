@@ -67,3 +67,8 @@ Route::get('/index','pagesController@index');
 
 // if npm not found err is incountered simply install the node,js in 
 //default directory that would work fine for you
+
+//now we will create a database of mySQL inside localhost
+//lets open localhost wamp dashbord by typing localhost in the browser
+//open phpmyadmin 
+//now we will use tinker tool used to insert update or delete data
