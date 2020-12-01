@@ -24,6 +24,8 @@
   </head>
   <body>
 
+    @include('inc_components.messages')
+
     <!-- Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a style="font-size: 36px" class="navbar-brand font-weight-bolder font-italic " href="/">Look</a>
@@ -47,8 +49,14 @@
       <li class="font-weight-bold ">
     <a class="nav-link" href="/about">About<span class="sr-only">(current)</span></a>
   </li>
-
           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+               <a href="/posts/create" class="btn btn-success">Create</a>
+            </li>
+
+         </ul>
         </div>
       </nav>
 

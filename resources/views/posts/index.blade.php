@@ -1,6 +1,7 @@
 @extends('layouts.basicLayout')
 @section('content')
 <h1 style="font-size: 36px">Posts</h1>
+<a href="/posts/create" class="btn btn-outline-success" role="button" aria-pressed="true">Create Post</a>
 <br>
 @if (count($posts)>0)
     @foreach ($posts as $post)
@@ -14,6 +15,8 @@
     </div>
 </div>
     @endforeach
+    <!--This line will kick in the pagination easy as you like-->
+    {{$posts->links()}}
     @else
 <div class="container">
             <h2>:( Sorry no request found...!</h2>
