@@ -86,6 +86,7 @@ class postController extends Controller
        // $post -> id =$request->input(1000);
         $post -> title =$request->input('title');
         $post -> body =$request->input('body');
+        $post -> user_name = auth()->user()->name;
 $post->save();
 return redirect('/posts')->with('success','Post created successfully...!');
 
@@ -100,8 +101,8 @@ return redirect('/posts')->with('success','Post created successfully...!');
     public function show($id)
     {
         //
-            $myPost = Post::find($id);
-        return view('posts.show')->with('myPost',$myPost);
+            $post = Post::find($id);
+        return view('posts.show')->with('post',$post);
 
     }
 
@@ -113,7 +114,8 @@ return redirect('/posts')->with('success','Post created successfully...!');
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit')->with('post',$post);
     }
 
     /**
@@ -125,7 +127,17 @@ return redirect('/posts')->with('success','Post created successfully...!');
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required',
+        ]);
+        $post = Post::find($id);
+       // $post -> id =$request->input(1000);
+        $post -> title = $request->input('title');
+        $post -> body = $request->input('body');
+$post->save();
+return redirect('/posts')->with('success','Post Updated successfully...!');
+
     }
 
     /**
@@ -137,5 +149,9 @@ return redirect('/posts')->with('success','Post created successfully...!');
     public function destroy($id)
     {
         //
+            $post = Post::find($id);
+            $post->delete();
+            return redirect('/posts')->with('success','Post Deleted successfully...!');
+
     }
 }

@@ -56,6 +56,10 @@ class pagesController extends Controller
     {
         return view('welcome');
     }
+    public function auth()
+    {
+        return view('layouts.app');
+    }
 
     /*
     //using compact

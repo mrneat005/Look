@@ -55,6 +55,7 @@ Route::get('/about','pagesController@about');
 //Route::get('/posts','pagesController@posts');
 Route::get('/','pagesController@home');
 Route::get('/index','pagesController@index');
+Route::get('/auth','pagesController@auth');
 
 
 // now lets se  how can we send values to blade syntax or Array
@@ -73,3 +74,14 @@ Route::get('/index','pagesController@index');
 //open phpmyadmin 
 //now we will use tinker tool used to insert update or delete data
 Route::resource('posts','postController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

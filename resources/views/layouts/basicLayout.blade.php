@@ -20,14 +20,24 @@
    <!-- npm is no working getting some error-->
    <!-- npm installation error fixed by installing node js-->
    
-  <title>Look</title>
-  </head>
-  <body>
+   <title>{{ config('app.name', 'Look') }}</title>
+<!--from app-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @include('inc_components.messages')
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+
+  </head>
+  <body class="bg-dark">
+
+    
 
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-inverse">
         <a style="font-size: 36px" class="navbar-brand font-weight-bolder font-italic " href="/">Look</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -57,10 +67,43 @@
             </li>
 
          </ul>
+
+         <!-- Right Side Of Navbar -->
+<ul class="nav navbar-nav navbar-right">
+  <!-- Authentication Links -->
+  @if (Auth::guest())
+      <li><a href="{{ route('login') }}">Login</a></li>
+      <li><a href="{{ route('register') }}">Register</a></li>
+  @else
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              {{ Auth::user()->name }} <span class="caret"></span>
+          </a>
+
+          <ul class="dropdown-menu" role="menu">
+              <li>
+                  <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                      Logout
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
+              </li>
+          </ul>
+      </li>
+  @endif
+</ul>
         </div>
       </nav>
 
-      <!-- cntent for others files-->
+
+      <!--Alert Messagess just under the navigation-->
+      @include('inc_components.messages')
+
+      <!-- content for others files-->
       @yield('content')
       <!-- lets try it outs-->
         
@@ -77,5 +120,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     -->
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
+        <script src="{{ asset('js/app.js') }}"></script>
   </body>
+
 </html>
